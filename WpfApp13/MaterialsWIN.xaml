@@ -1,0 +1,98 @@
+﻿<Window x:Class="WpfApp13.MaterialsWIN"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp13"
+        mc:Ignorable="d"
+        Title="Редактор материалов" Height="460" Width="900" MaxWidth="900" MinWidth="900" MinHeight="460" MaxHeight="460" Loaded="Window_Loaded" Closed="Window_Closed" Icon="img/ico.ico" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="1" Grid.Column="1"  BorderThickness="2" BorderBrush="Black">
+            <ScrollViewer >
+                <Canvas Name="ItemCanvas" MouseDown="EditCanvas_MouseDown" Background="White" Width="720" Height="380" />
+            </ScrollViewer>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0"  BorderThickness="2" BorderBrush="Black">
+            <Canvas Name="EditCanvas"  >
+                <TextBlock Text="Фильтры" Width="146" TextAlignment="Center" />
+                <TreeView Canvas.Top="20" Width="146" Name="Filters" Height="330"  >
+                </TreeView>
+                <Button Name="UseFilter" Content="Применить фильтр" Canvas.Top="350" Height="35" Width="146"  Click="UseFilter_Click"/>
+                <Grid Name="ShowWin" Width="200" Height="385" Canvas.Left="-210" Background="Beige" >
+                    <TextBlock Text="Описание материала" Margin="0,0,0,365" />
+                    <TextBlock Text="Название материала" Margin="0,20,0,345" />
+                    <TextBlock Name="nameMatS" Margin="0,40,0,325" />
+                    <TextBlock Text="Группа материала" Margin="0,60,0,305" />
+                    <TextBlock Name="groupMatS" Margin="0,80,0,285" />
+                    <TextBlock Text="Подгруппа материала" Margin="0,100,0,265" />
+                    <TextBlock Name="ingroupMatS" Margin="0,120,0,245" />
+                    <TextBlock Text="Путь к материалу" Margin="0,140,0,225" />
+                    <TextBlock  Name="sourseMatS" Margin="0,160,0,185" TextWrapping="Wrap"/>
+                    <TextBlock Text="Длина ед материала(мм)" Margin="0,205,0,160" />
+                    <TextBlock Name="lenMatS" Margin="0,225,0,140" PreviewTextInput="_PreviewTextInput" />
+                    <TextBlock Text="Ширина ед материала(мм)" Margin="0,245,0,120" />
+                    <TextBlock Name="shirMatS" Margin="0,265,0,100" PreviewTextInput="_PreviewTextInput" />
+                    <TextBlock Text="Толщина ед материала(мм)" Margin="0,285,0,80" />
+                    <TextBlock Name="thicMatS" Margin="0,305,0,60" PreviewTextInput="_PreviewTextInput" />
+                    <TextBlock Text="Цена ед материала" Margin="0,325,0,40" />
+                    <TextBlock Name="priceMatS" Margin="0,345,0,20" PreviewTextInput="_PreviewTextInput" />
+                    <Button Name="SelMat" Content="Выбрать материал" Margin="0,365,0,0" Click="SelMat_Click" Visibility="Hidden"/>
+                    <Button Name="SelMat1" Content="Выбрать материал" Margin="0,365,0,0" Click="SelMat1_Click" Visibility="Hidden"/>
+                </Grid>
+                <Grid Name="AddWin" Width="200" Height="385" Canvas.Left="-210" Background="Beige"   >
+                    <TextBlock Text="Название материала" Margin="0,0,0,365" />
+                    <TextBox Name="nameMat" Margin="0,20,0,345" />
+                    <TextBlock Text="Группа материала" Margin="0,40,0,325" />
+                    <TextBox Name="groupMat" Margin="0,60,0,305" />
+                    <TextBlock Text="Подгруппа материала" Margin="0,80,0,285" />
+                    <TextBox Name="ingroupMat" Margin="0,100,0,265" />
+                    <Button Content="Путь к материалу" Name="sourseMat" Margin="0,120,0,245" Click="sourseMat_Click" />
+                    <TextBlock Text="" Margin="0,140,0,225" Name="sourseMatt"/>
+                    <TextBlock Text="Длина ед материала(мм)" Margin="0,160,0,205" />
+                    <TextBox Name="lenMat" Margin="0,180,0,185" PreviewTextInput="_PreviewTextInput" />
+                    <TextBlock Text="Ширина ед материала(мм)" Margin="0,200,0,165" />
+                    <TextBox Name="shirMat" Margin="0,220,0,145" PreviewTextInput="_PreviewTextInput" />
+                    <TextBlock Text="Толщина ед материала(мм)" Margin="0,240,0,125" />
+                    <TextBox Name="thicMat" Margin="0,260,0,105" PreviewTextInput="_PreviewTextInput" />
+                    <TextBlock Text="Цена ед материала" Margin="0,280,0,85" />
+                    <TextBox Name="priceMat" Margin="0,300,0,65" PreviewTextInput="_PreviewTextInput" />
+                    <Button Content="Добавить материал" Name="addMaterial" Margin="0,325,0,40" Click="addMaterial_Click" />
+                    <Button Content="Скрыть"  Margin="0,345,0,20" Click="Addmat_Click"/>
+                </Grid>
+                <Grid Name="EditWin" Width="200" Height="385" Canvas.Left="-210" Background="Beige"  >
+                    <TextBlock Text="Название материала" Margin="0,0,0,365" />
+                    <TextBox Name="nameMatE" Margin="0,20,0,345" />
+                    <TextBlock Text="Группа материала" Margin="0,40,0,325" />
+                    <TextBox Name="groupMatE" Margin="0,60,0,305" />
+                    <TextBlock Text="Подгруппа материала" Margin="0,80,0,285" />
+                    <TextBox Name="ingroupMatE" Margin="0,100,0,265" />
+                    <Button Content="Путь к материалу" Name="sourseMatE" Margin="0,120,0,245" Click="sourseMat_Click" />
+                    <TextBlock Text="" Margin="0,140,0,225" Name="sourseMatEE" />
+                    <TextBlock Text="Длина ед материала(мм)" Margin="0,160,0,205" />
+                    <TextBox Name="lenMatE" Margin="0,180,0,185" PreviewTextInput="_PreviewTextInput" />
+                    <TextBlock Text="Ширина ед материала(мм)" Margin="0,200,0,165" />
+                    <TextBox Name="shirMatE" Margin="0,220,0,145" PreviewTextInput="_PreviewTextInput" />
+                    <TextBlock Text="Толщина ед материала(мм)" Margin="0,240,0,125" />
+                    <TextBox Name="thicMatE" Margin="0,260,0,105" PreviewTextInput="_PreviewTextInput" />
+                    <TextBlock Text="Цена ед материала" Margin="0,280,0,85" />
+                    <TextBox Name="priceMatE" Margin="0,300,0,65" PreviewTextInput="_PreviewTextInput" />
+                    <Button Content="Изменить материал" Name="editMaterial" Margin="0,325,0,40" Click="editMaterial_Click" />
+                    <Button Content="Скрыть"  Margin="0,345,0,20" Click="Editmat_Click"/>
+                </Grid>
+            </Canvas>
+        </Border>
+        <Menu Grid.ColumnSpan="2" Background="Beige">
+            <MenuItem Name="Addmat" Header="Добавить материал" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Click="Addmat_Click"/>
+            <MenuItem Name="Editmat" Header="Изменить выбранный материал" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" IsEnabled="False" Click="Editmat_Click"/>
+            <MenuItem Name="Delmat" Header="Удалить выбранный материал" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" IsEnabled="False" Click="Delmat_Click"/>
+        </Menu>
+    </Grid>
+</Window>

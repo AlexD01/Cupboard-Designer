@@ -1,0 +1,79 @@
+﻿<Window x:Class="WpfApp13.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
+        xmlns:local="clr-namespace:WpfApp13"
+        mc:Ignorable="d"
+        Title="Проектировщик шкафов"  MinHeight="800" Height="800" Width="900" Loaded="Window_Loaded" Icon="img/ico.ico" Closed="Window_Closed">
+    <Grid Name="gr">
+
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="240"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <HelixToolkit:HelixViewport3D Grid.Row="1" CalculateCursorPosition="True" x:Name="Camera" ZoomExtentsWhenLoaded="True" MouseDown="ClickOnCamera"   >
+            <HelixToolkit:SunLight/>
+            
+            <HelixToolkit:CoordinateSystemVisual3D XAxisColor="Black" YAxisColor="Black" ZAxisColor="Black" ArrowLengths="0.5" x:Name="vv"> </HelixToolkit:CoordinateSystemVisual3D>
+            <HelixToolkit:BillboardTextVisual3D Position="0.2 -0.5 0" Text="X" FontSize="30" x:Name="vv1" />
+                <HelixToolkit:BillboardTextVisual3D Position="-0.5 0.2 0" Text="Y" FontSize="30" x:Name="vv2"/>
+                <HelixToolkit:BillboardTextVisual3D Position="-0.5 -0.5 0.8" Text="Z" FontSize="30" x:Name="vv3"/>
+            <ModelVisual3D x:Name="all">
+
+                
+                
+                
+                <ContainerUIElement3D   x:Name="container"  >
+                </ContainerUIElement3D>
+            </ModelVisual3D>
+        </HelixToolkit:HelixViewport3D>
+        <Menu Height="20" VerticalAlignment="Top" Background="Beige" >
+            <MenuItem Header="Модель">
+                <MenuItem Header="Сохранить выбранную модель" Click="SaveCab_Click" IsEnabled="False" Name="saveModelButt"></MenuItem>
+                <MenuItem Header="Сохранить все модели" Click="saveModelButt1_Click" Name="saveModelButt1"></MenuItem>
+                <MenuItem Header="Добавить корпус">
+                    <MenuItem Header="Шкаф" Tag="MainCabinet-" Click="CreateCab_Click"></MenuItem>
+                    <MenuItem Header="Шкаф без цоколя" Tag="NCabinet-" Click="CreateCab_Click"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Удалить объект" Name="DeleteElement" Click="DeleteElement_Click" IsEnabled="False"></MenuItem>
+                <MenuItem Header="Експортировать проект" Name="Export" Click="Export_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Редактор материалов" Name="MaterialSel" Click="MaterialSel_Click">
+            </MenuItem>
+            <MenuItem Header="Редактор шкафов" Name="CupboardSel" Click="CupboardSel_Click">
+            </MenuItem>
+            <MenuItem Header="Редактор елементов" Name="ElementSel" Click="ElementSel_Click">
+            </MenuItem>
+            <MenuItem Header="Подсчет стоимости">
+                <MenuItem Header="Стоимость выбранного шкафа" Name="CostOne" Click="CostOne_Click" IsEnabled="False">
+                </MenuItem>
+                <MenuItem Header="Стоимость всех шкафов" Name="CostAll" Click="CostAll_Click">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Настройки" Name="Option" Click="Option_Click"></MenuItem>
+        </Menu>
+        <Grid Grid.Column="1" Name="ControlGrid" Grid.Row="0" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="190"></RowDefinition>
+                <RowDefinition Height="110"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ScrollViewer Grid.Row="0" Grid.RowSpan="7" Background="Beige">
+                <Canvas  Name="ControlElemetsCvs" MouseLeave="OBJ_MouseLeave" >
+                </Canvas>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

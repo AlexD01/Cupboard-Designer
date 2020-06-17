@@ -1,0 +1,67 @@
+﻿<Window x:Class="WpfApp13.CupboardsWIN"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp13"
+        mc:Ignorable="d"
+        Title="Редактор шкафов" Height="460" Width="900" MaxWidth="900" MinWidth="900" MinHeight="460" MaxHeight="460" Loaded="Window_Loaded" Closed="Window_Closed" Icon="img/ico.ico">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1" Grid.Column="1"  BorderThickness="2" BorderBrush="Black">
+                <ScrollViewer >
+                    <Canvas Name="ItemCanvas" MouseDown="ItemCanvas_MouseDown" Background="White" Width="720" Height="380" />
+                </ScrollViewer>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="0"  BorderThickness="2" BorderBrush="Black">
+                <Canvas Name="EditCanvas"  >
+                    <TextBlock Text="Фильтры" Width="146" TextAlignment="Center" />
+                    <TreeView Canvas.Top="20" Width="146" Name="Filters" Height="330"  >
+                    </TreeView>
+                    <Button Name="UseFilter" Content="Применить фильтр" Canvas.Top="350" Height="35" Width="146"  Click="UseFilter_Click"/>
+                    <Grid Name="ShowWin" Width="200" Height="385" Canvas.Left="-210" Background="Beige" >
+                        <TextBlock Text="Описание мебели" Margin="0,0,0,365" />
+                        <TextBlock Text="Название мебели" Margin="0,20,0,345" />
+                        <TextBlock Name="nameCupS" Margin="0,40,0,325" />
+                        <TextBlock Text="Группа мебели" Margin="0,60,0,305" />
+                        <TextBlock Name="groupCupS" Margin="0,80,0,285" />
+                        <TextBlock Text="Подгруппа мебели" Margin="0,100,0,265" />
+                        <TextBlock Name="ingroupCupS" Margin="0,120,0,245" />
+                        <TextBlock Text="Путь к изображению мебели" Margin="0,140,0,225" />
+                        <TextBlock  Name="sourseCupS" Margin="0,160,0,185" TextWrapping="Wrap"/>
+                        <Button Tag="wall" Content="Материал стенки"  Margin="0,200,0,165" Click="SelectMat_Click" />
+                        <TextBlock   Name="matwall" Margin="0,220,0,125" TextWrapping="Wrap"/>
+                        <Button Tag="bwall" Content="Материал задней стенки"  Margin="0,260,0,105" Click="SelectMat_Click"/>
+                        <TextBlock   Name="matbwall" Margin="0,280,0,65" TextWrapping="Wrap"/>
+                        <Button  Content="Добавить"  Margin="0,325,0,40" Click="LoadCup_Click"/>
+                    </Grid>
+                    <Grid Name="EditWin" Width="200" Height="385" Canvas.Left="-210" Background="Beige"  >
+                        <TextBlock Text="Описание мебели" Margin="0,0,0,365" />
+                        <TextBlock Text="Название мебели" Margin="0,20,0,345" />
+                        <TextBox Name="nameCup" Margin="0,40,0,325" />
+                        <TextBlock Text="Группа мебели" Margin="0,60,0,305" />
+                        <TextBox Name="groupCup" Margin="0,80,0,285" />
+                        <TextBlock Text="Подгруппа мебели" Margin="0,100,0,265" />
+                        <TextBox Name="ingroupCup" Margin="0,120,0,245" />
+                        <Button Content="Путь к изображению мебели" Margin="0,140,0,225" Click="SelImgCup_Click" />
+                        <TextBlock  Name="sourseCup" Margin="0,160,0,185" TextWrapping="Wrap"/>
+                        <Button Content="Изменить мебель" Name="editCup" Margin="0,325,0,40" Click="editCup_Click_1" />
+                        <Button Content="Скрыть"  Margin="0,345,0,20" Click="Editcup_Click"/>
+                    </Grid>
+                </Canvas>
+            </Border>
+            <Menu Grid.ColumnSpan="2" Background="Beige">
+                <MenuItem Name="Editcup" Header="Изменить выбранную мебель" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" IsEnabled="False" Click="Editcup_Click"/>
+                <MenuItem Name="Delcup" Header="Удалить выбранную мебель" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" IsEnabled="False" Click="Delcup_Click"/>
+            </Menu>
+        </Grid>
+    </Grid>
+</Window>

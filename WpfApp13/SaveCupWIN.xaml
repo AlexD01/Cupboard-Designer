@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp13.SaveCupWIN"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp13"
+        mc:Ignorable="d"
+        Title="Сохранение шкафа" Height="267.5" Width="200" Closed="Window_Closed" Icon="img/ico.ico">
+    <Grid Name="EditWin" Width="200" Height="385" Background="Beige"  >
+    <TextBlock Text="Описание мебели" Margin="0,0,10,365" />
+    <TextBlock Text="Название мебели" Margin="0,20,10,345" />
+    <TextBox Name="nameCup" Margin="0,40,10,325" />
+    <TextBlock Text="Группа мебели" Margin="0,60,10,305" />
+    <TextBox Name="groupCup" Margin="0,80,10,285" />
+    <TextBlock Text="Подгруппа мебели" Margin="0,100,10,265" />
+    <TextBox Name="ingroupCup" Margin="0,120,10,245" />
+    <Button Content="Путь к изображению мебели" Margin="0,140,10,225" Click="SelImgCup_Click" />
+    <TextBlock  Name="sourseCup" Margin="0,160,0,185" TextWrapping="Wrap"/>
+    <Button Content="Добавить мебель" Name="addCup" Margin="0,200,0,165" Click="addCup_Click" />
+    </Grid>
+</Window>

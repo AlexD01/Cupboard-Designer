@@ -1,0 +1,71 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp13"
+        xmlns:h="http://helix-toolkit.org/wpf" x:Class="WpfApp13.OptionWIN"
+        mc:Ignorable="d"
+        Title="Настройки"  Height="460" Width="900" MaxWidth="900" MinWidth="900" MinHeight="460" MaxHeight="460" Closed="Window_Closed" Loaded="Window_Loaded" Icon="img/ico.ico" >
+    <Grid Background="Beige">
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Настройки подключения к базе данных" VerticalAlignment="Top" TextAlignment="Center" FontSize="20" Width="429"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" Text="Имя пользователя" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,98,0,0" TextWrapping="Wrap" Text="Пароль" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Адрес" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,202,0,0" TextWrapping="Wrap" Text="Порт" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,254,0,0" TextWrapping="Wrap" Text="Имя базы данных" TextAlignment="Center" VerticalAlignment="Top" FontSize="16" Width="429"/>
+        <TextBox HorizontalAlignment="Left" Height="21" Margin="10,72,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="429"/>
+        <TextBox HorizontalAlignment="Left" Height="21" Margin="10,124,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="429"/>
+        <TextBox HorizontalAlignment="Left" Height="21" Margin="10,176,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="429"/>
+        <TextBox HorizontalAlignment="Left" Height="21" Margin="10,228,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="429"/>
+        <TextBox HorizontalAlignment="Left" Height="21" Margin="10,280,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="429"/>
+        <Line X1="2" X2="2" Y1="0" Y2="500" Stroke="Black" StrokeThickness="4" Margin="444,0" Width="4"/>
+        <Button Content="Проверить подключение к базе данных " HorizontalAlignment="Left" Margin="10,352,0,0" FontSize="20" VerticalAlignment="Top" Width="429"/>
+        <Button Content="Создать базу данных " HorizontalAlignment="Left" Margin="10,388,0,0" FontSize="20" VerticalAlignment="Top" Width="429"/>
+        <Line X1="0" X2="500" Y1="2" Y2="2" Stroke="Black" StrokeThickness="4" Margin="448,37,0,388"  Height="4"/>
+        <TextBlock HorizontalAlignment="Left" Margin="453,10,0,0" TextWrapping="Wrap" Text="Настройки материалов по умолчанию" VerticalAlignment="Top" TextAlignment="Center" FontSize="20" Width="429"/>
+        <TextBlock HorizontalAlignment="Left" Margin="453,46,0,0" TextWrapping="Wrap" Text="Материал стены по умолчанию" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429"/>
+        <TextBlock HorizontalAlignment="Left" Margin="453,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429"/>
+        <Button Content="Выбрать материал стены по умолчанию" HorizontalAlignment="Left" Margin="453,99,0,0" VerticalAlignment="Top" FontSize="14" Width="429" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Настройки подключения к базе данных" VerticalAlignment="Top" TextAlignment="Center" FontSize="20" Width="429"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" Text="Имя пользователя" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,98,0,0" TextWrapping="Wrap" Text="Пароль" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Адрес" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,202,0,0" TextWrapping="Wrap" Text="Порт" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,254,0,0" TextWrapping="Wrap" Text="Имя базы данных" TextAlignment="Center" VerticalAlignment="Top" FontSize="16" Width="429"/>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="21" Margin="10,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="429"/>
+        <TextBox x:Name="pass" HorizontalAlignment="Left" Height="21" Margin="10,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="429"/>
+        <TextBox x:Name="adres" HorizontalAlignment="Left" Height="21" Margin="10,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="429"/>
+        <TextBox x:Name="port" HorizontalAlignment="Left" Height="21" Margin="10,228,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="429"/>
+        <TextBox x:Name="bd" HorizontalAlignment="Left" Height="21" Margin="10,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="429"/>
+        <Button Content="Проверить подключение к базе данных " HorizontalAlignment="Left" Margin="10,352,0,0" FontSize="20" VerticalAlignment="Top" Width="429" x:Name="CheckConnect" Click="CheckConnect_Click"/>
+        <Button Content="Создать базу данных " HorizontalAlignment="Left" Margin="10,388,0,0" FontSize="20" VerticalAlignment="Top" Width="429" x:Name="CreateConnect" Click="CreateConnect_Click"/>
+        <Grid x:Name="Grids">
+            <TextBlock HorizontalAlignment="Left" Margin="453,10,0,0" TextWrapping="Wrap" Text="Настройки материалов по умолчанию" VerticalAlignment="Top" TextAlignment="Center" FontSize="20" Width="429"/>
+            <TextBlock HorizontalAlignment="Left" Margin="453,46,0,0" TextWrapping="Wrap" Text="Материал стены по умолчанию" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429"/>
+            <TextBlock x:Name="MW" HorizontalAlignment="Left" Margin="453,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429"/>
+            <Button Content="Выбрать материал стены по умолчанию" HorizontalAlignment="Left" Margin="453,99,0,0" VerticalAlignment="Top" FontSize="14" Width="429" Height="20" x:Name="SelWM" Click="SelWM_Click"/>
+            <TextBlock HorizontalAlignment="Left" Margin="453,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429" Text="Материал задней стены по умолчанию"/>
+            <TextBlock x:Name="MWB" HorizontalAlignment="Left" Margin="453,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429"/>
+            <Button Content="Выбрать материал задней стены по умолчанию" HorizontalAlignment="Left" Margin="453,177,0,0" VerticalAlignment="Top" FontSize="14" Width="429" Height="20" x:Name="SelWBM" Click="SelWBM_Click"/>
+            <TextBlock HorizontalAlignment="Left" Margin="453,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="429" Height="26"><Run Text="Цвет елементов "/><Run Text="по умолчанию"/></TextBlock>
+            <TextBox Text="{Binding Value, ElementName=SlR, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" Margin="832,228,10,175"/>
+            <Slider TickPlacement="BottomRight" TickFrequency="1" Minimum="0" Value="0" Maximum="255" IsSnapToTickEnabled="True" x:Name="SlR"   Margin="515,228,65,175" ValueChanged="SlG_ValueChanged" />
+            <TextBox Text="{Binding Value, ElementName=SlB, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" Margin="832,280,10,123"/>
+            <Slider TickPlacement="BottomRight" TickFrequency="1" Minimum="0" Value="0" Maximum="255" IsSnapToTickEnabled="True" x:Name="SlB"  Margin="515,280,65,123" ValueChanged="SlG_ValueChanged"  />
+            <TextBox Text="{Binding Value, ElementName=SlG, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" Margin="832,254,10,149"/>
+            <Slider TickPlacement="BottomRight" TickFrequency="1" Minimum="0" Value="0" Maximum="255" IsSnapToTickEnabled="True" x:Name="SlG"  Margin="515,254,65,149" ValueChanged="SlG_ValueChanged"  />
+            <TextBlock HorizontalAlignment="Left" Margin="448,228,0,0" TextWrapping="Wrap" Text="Красный" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="67" Height="26"/>
+            <TextBlock HorizontalAlignment="Left" Margin="448,254,0,0" TextWrapping="Wrap" Text="Зеленый" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="67" Height="26"/>
+            <TextBlock HorizontalAlignment="Left" Margin="448,280,0,0" TextWrapping="Wrap" Text="Синий" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" Width="67" Height="26"/>
+        </Grid>
+        <Button Content="Сохранить конфигурацию " HorizontalAlignment="Left" Margin="453,352,0,0" FontSize="20" VerticalAlignment="Top" Width="429" x:Name="Save" Click="Save_Click"/>
+        <Canvas>
+            <Line X1="0" X2="500" Y1="2" Y2="2" Stroke="Black" StrokeThickness="4" Margin="0,37,448,388"  Height="4"/>
+            <Line X1="0" X2="500" Y1="2" Y2="2" Stroke="Black" StrokeThickness="4" Margin="0,37,448,388"  Height="4"/>
+            <Line X1="2" X2="2" Y1="0" Y2="500" Stroke="Black" StrokeThickness="4" Margin="444,0" Width="4" />
+            <Line X1="0" X2="500" Y1="2" Y2="2" Stroke="Black" StrokeThickness="4" Margin="448,37,0,388"  Height="4"/>
+            <Line X1="0" X2="500" Y1="2" Y2="2" Stroke="Black" StrokeThickness="4" Margin="444,306,4,119"  Height="4"/>
+        </Canvas>
+    </Grid>
+</Window>

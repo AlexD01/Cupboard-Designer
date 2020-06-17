@@ -1,0 +1,86 @@
+﻿<Window x:Class="WpfApp13.ElementWIN"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp13"
+        mc:Ignorable="d"
+        Title="Редактор елементов" Height="460" Width="900" MaxWidth="900" MinWidth="900" MinHeight="460" MaxHeight="460" Loaded="Window_Loaded" Closed="Window_Closed" Icon="img/ico.ico" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="1" Grid.Column="1"  BorderThickness="2" BorderBrush="Black">
+            <ScrollViewer >
+                <Canvas Name="ItemCanvas" MouseDown="ItemCanvas_MouseDown" Background="White" Width="720" Height="380" />
+            </ScrollViewer>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0"  BorderThickness="2" BorderBrush="Black">
+            <Canvas Name="EditCanvas"  >
+                <TextBlock Text="Фильтры" Width="146" TextAlignment="Center" />
+                <TreeView Canvas.Top="20" Width="146" Name="Filters" Height="330"  >
+                </TreeView>
+                <Button Name="UseFilter" Content="Применить фильтр" Canvas.Top="350" Height="35" Width="146"  Click="UseFilter_Click"/>
+                <Grid Name="ShowWin" Width="198" Height="385" Canvas.Left="-210" Background="Beige"  >
+                    <TextBlock Text="Описание елемента" Margin="0,0,0,365" />
+                    <TextBlock Text="Название елемента" Margin="0,20,0,345" />
+                    <TextBlock Name="nameElS" Margin="0,40,0,325" />
+                    <TextBlock Text="Группа елемента" Margin="0,60,0,305" />
+                    <TextBlock Name="groupElS" Margin="0,80,0,285" />
+                    <TextBlock Text="Подгруппа елемента" Margin="0,100,0,265" />
+                    <TextBlock Name="ingroupElS" Margin="0,120,0,245" />
+                    <TextBlock Text="Путь к файлу елемента" Margin="0,140,0,225" />
+                    <TextBlock  Name="sourseElS" Margin="0,160,0,185" TextWrapping="Wrap"/>
+                    <TextBlock  Name="sourseimgElS" Margin="0,225,0,120" TextWrapping="Wrap"/>
+                    <TextBlock Text="Путь к изображению елемента" Margin="0,205,0,160" />
+                    <TextBlock Text="Цена ед елемента" Margin="0,265,0,100" />
+                    <TextBlock   Name="matEll" Margin="0,325,0,20" TextWrapping="Wrap"/>
+                    <TextBlock Name="priceElS" Margin="0,285,0,80" PreviewTextInput="_PreviewTextInput" />
+                    <Button Name="SelEl" Content="Выбрать елемент" Margin="0,365,0,0" Click="SelEl_Click" />
+                </Grid>
+                <Grid Name="AddWin" Width="200" Height="385" Canvas.Left="-210" Background="Beige"    >
+                    <TextBlock Text="Название елемента" Margin="0,0,0,365" />
+                    <TextBox Name="nameEl" Margin="0,20,0,345" />
+                    <TextBlock Text="Группа елемента" Margin="0,40,0,325" />
+                    <TextBox Name="groupEl" Margin="0,60,0,305" />
+                    <TextBlock Text="Подгруппа елемента" Margin="0,80,0,285" />
+                    <TextBox Name="ingroupEl" Margin="0,100,0,265" />
+                    <Button Content="Путь к файлу елемента" Name="sourseEl" Margin="0,120,0,245" Click="sourseEl_Click" />
+                    <TextBlock Text="" Margin="0,140,0,205" Name="sourseEll" TextWrapping="Wrap"/>
+                    <Button Content="Путь к изображению елемента" Name="sourseimgEl" Margin="0,180,0,185" Click="sourseimgEl_Click" />
+                    <TextBlock Text="" Margin="0,200,0,145" Name="sourseimgEll" TextWrapping="Wrap"/>
+                    <TextBlock Text="Цена ед елемента" Margin="0,240,0,125" />
+                    <TextBox Name="priceEl" Margin="0,260,0,105" PreviewTextInput="_PreviewTextInput" />
+                    <Button Content="Добавить елемент" Name="addElement" Margin="0,325,0,40" Click="addElement_Click" />
+                    <Button Content="Скрыть"  Margin="0,345,0,20" Click="AddEl_Click"/>
+                </Grid>
+                <Grid Name="EditWin" Width="200" Height="385" Canvas.Left="-210" Background="Beige"  >
+                    <TextBlock Text="Название елемента" Margin="0,0,0,365" />
+                    <TextBox Name="nameElE" Margin="0,20,0,345" />
+                    <TextBlock Text="Группа елемента" Margin="0,40,0,325" />
+                    <TextBox Name="groupElE" Margin="0,60,0,305" />
+                    <TextBlock Text="Подгруппа елементп" Margin="0,80,0,285" />
+                    <TextBox Name="ingroupElE" Margin="0,100,0,265" />
+                    <Button Content="Путь к файлу елемента" Name="sourseElE" Margin="0,120,0,245" Click="sourseEl_Click" />
+                    <TextBlock Text="" Margin="0,140,0,205" Name="sourseElEE" TextWrapping="Wrap"/>
+                    <Button Content="Путь к изображению елемента" Name="sourseimgElE" Margin="0,185,0,180" Click="sourseimgEl_Click" />
+                    <TextBlock Text="" Margin="0,205,0,140" Name="sourseimgElEE" TextWrapping="Wrap"/>
+                    <TextBlock Text="Цена ед елемента" Margin="0,245,0,120"  />
+                    <TextBox Name="priceElE" Margin="0,265,0,100" PreviewTextInput="_PreviewTextInput" />
+                    <Button Content="Изменить елемент" Name="editElement" Margin="0,325,0,40" Click="editElement_Click" />
+                    <Button Content="Скрыть"  Margin="0,345,0,20" Click="EditEl_Click"/>
+                </Grid>
+            </Canvas>
+        </Border>
+        <Menu Grid.ColumnSpan="2" Background="Beige">
+            <MenuItem Name="AddEl" Header="Добавить елемент" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Click="AddEl_Click"/>
+            <MenuItem Name="EditEl" Header="Изменить выбранный елемент" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" IsEnabled="False" Click="EditEl_Click"/>
+            <MenuItem Name="DelEl" Header="Удалить выбранный елемент" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" IsEnabled="False" Click="DelEl_Click"/>
+        </Menu>
+    </Grid>
+</Window>
